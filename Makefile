@@ -2,7 +2,7 @@ BUILD_DIR := /tmp/forever-stars-build
 SAVER     := $(BUILD_DIR)/Forever Stars.saver
 INSTALL   := $(HOME)/Library/Screen Savers/Forever Stars.saver
 
-.PHONY: build install clean
+.PHONY: build install run clean
 
 build:
 	xcodebuild \
@@ -17,6 +17,10 @@ build:
 install: build
 	cp -r "$(SAVER)" "$(INSTALL)"
 	@echo "Installed to $(INSTALL)"
+
+run: build
+	clang -framework Cocoa -framework ScreenSaver -o "$(BUILD_DIR)/test-harness" test-harness.m
+	"$(BUILD_DIR)/test-harness"
 
 clean:
 	rm -rf "$(BUILD_DIR)"

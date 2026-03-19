@@ -23,7 +23,7 @@
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCFA80370C50100C91783 /* Forever Stars_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Forever Stars_Prefix.pch"; sourceTree = "<group>"; };
 		8D255AD20486D3F9007BF209 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D255AD30486D3F9007BF209 /* Forever Stars.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Forever Stars.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D255AD30486D3F9007BF209 /* ForeverStars.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForeverStars.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50079790118B23001CA0E54 /* Forever_StarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forever_StarsView.h; sourceTree = "<group>"; };
 		F500797A0118B23001CA0E54 /* Forever_StarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forever_StarsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +101,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D255AD30486D3F9007BF209 /* Forever Stars.saver */,
+				8D255AD30486D3F9007BF209 /* ForeverStars.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			name = "Forever Stars";
 			productInstallPath = "$(HOME)/Library/Screen Savers";
 			productName = "Forever Stars";
-			productReference = 8D255AD30486D3F9007BF209 /* Forever Stars.saver */;
+			productReference = 8D255AD30486D3F9007BF209 /* ForeverStars.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
-				PRODUCT_NAME = "Forever Stars";
+				PRODUCT_NAME = ForeverStars;
 				WRAPPER_EXTENSION = saver;
 				ZERO_LINK = YES;
 			};
@@ -246,7 +246,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
-				PRODUCT_NAME = "Forever Stars";
+				PRODUCT_NAME = ForeverStars;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
