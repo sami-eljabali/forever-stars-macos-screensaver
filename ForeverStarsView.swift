@@ -1,20 +1,33 @@
 import ScreenSaver
 import QuartzCore
 
+private let fps: CGFloat = 60
+private let starCount = 1200
+
+private let changeColorAndSpeedIntervalSeconds: CGFloat = 10
 private let randomizeSpeedEnabled = false
 private let randomizeColorEnabled = false
-private let starCount = 500
-private let starTopSpeed: CGFloat = 200
-private let changeColorAndSpeedIntervalSeconds: CGFloat = 10
+
+private let starStartSpeed: CGFloat = 3
+private let starTopSpeed: CGFloat = 100
+
+private let starStartRedColor: CGFloat = 0.7
+private let starStartGreenColor: CGFloat = 0.7
+private let starStartBlue: CGFloat = 0.7
+
+private let starEndRedColor: CGFloat = 1.0
+private let starEndGreenColor: CGFloat = 1.0
+private let starEndBlueColor: CGFloat = 1.0
+
 
 @objc(ForeverStarsView)
 class ForeverStarsView: ScreenSaverView {
 
     var stars: [Star] = []
-    var redColor: CGFloat = 1.0
-    var greenColor: CGFloat = 1.0
-    var blueColor: CGFloat = 1.0
-    private var overallSpeed: CGFloat = 50
+    var redColor: CGFloat = starStartRedColor
+    var greenColor: CGFloat = starStartGreenColor
+    var blueColor: CGFloat = starStartBlue
+    private var overallSpeed: CGFloat = starStartSpeed
 
     private var animationTimer: Timer?
     private var colorTimer: Timer?
@@ -36,10 +49,10 @@ class ForeverStarsView: ScreenSaverView {
         animationTimeInterval = 1.0 / 60.0
 
         // Randomize initial color and speed
-        overallSpeed = CGFloat.random(in: 20...starTopSpeed)
-        redColor = CGFloat.random(in: 0.1...1.0)
-        greenColor = CGFloat.random(in: 0.1...1.0)
-        blueColor = CGFloat.random(in: 0.1...1.0)
+        overallSpeed = starStartSpeed
+        redColor = starStartRedColor
+        greenColor = starStartGreenColor
+        blueColor = starStartBlue
 
         // Initialize stars
         let width = max(frame.width, 800)
@@ -77,9 +90,9 @@ class ForeverStarsView: ScreenSaverView {
             layer?.contentsScale = scale
         }
 
-        // Timer drives animation at ~60fps, added to .common mode so it fires
+        // Timer driving animation's frames per second, added to .common mode so it fires
         // reliably inside the legacyScreenSaver process regardless of run loop mode.
-        let anim = Timer(timeInterval: 1.0 / 60.0, target: self,
+        let anim = Timer(timeInterval: 1.0 / fps, target: self,
                          selector: #selector(animationTick),
                          userInfo: nil, repeats: true)
         RunLoop.current.add(anim, forMode: .common)
@@ -151,12 +164,12 @@ class ForeverStarsView: ScreenSaverView {
 
     @objc private func randomizeAppearance() {
         if randomizeSpeedEnabled {
-            overallSpeed = CGFloat.random(in: 20...starTopSpeed)
+            overallSpeed = CGFloat.random(in: starStartSpeed...starTopSpeed)
         }
         if randomizeColorEnabled {
-            redColor = CGFloat.random(in: 0.1...1.0)
-            greenColor = CGFloat.random(in: 0.1...1.0)
-            blueColor = CGFloat.random(in: 0.1...1.0)
+            redColor = CGFloat.random(in: starStartRedColor...starEndRedColor)
+            greenColor = CGFloat.random(in: starStartGreenColor...starEndGreenColor)
+            blueColor = CGFloat.random(in: starStartBlue...starEndBlueColor)
         }
     }
 

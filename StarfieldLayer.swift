@@ -1,7 +1,7 @@
 import QuartzCore
 
 class StarfieldLayer: CALayer {
-    private let starWidth: CGFloat = 1.5
+    private let starWidth: CGFloat = 3.2
 
     weak var starfieldView: ForeverStarsView?
 
