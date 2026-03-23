@@ -10,14 +10,14 @@
 ## Installation
 
 #### Download (recommended)
-1. Download `Forever Stars.saver` from the [latest release](../../releases/latest)
-2. Open the file to install
+1. Download `Forever Stars.saver` from the [latest release](../../releases/latest)'s assets.
+2. Open the file to install.
 
 #### Build from source
-1. Clone the repo
-2. Run `make install`
+1. Clone the repo.
+2. Run `make install`.
 
-Using macOS Tahoe (26.3.1) can be found at **System Settings → Wallpaper → Screen Saver... → Others → View All → Forever Stars**
+Using macOS Tahoe (26.3.1) can be later found at **System Settings → Wallpaper → Screen Saver... → Others → View All → Forever Stars**.
 
 ## Commands
 
