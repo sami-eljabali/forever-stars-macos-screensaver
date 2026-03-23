@@ -1,6 +1,7 @@
 import QuartzCore
 
 class StarfieldLayer: CALayer {
+    private let starWidth: CGFloat = 1.5
 
     weak var starfieldView: ForeverStarsView?
 
@@ -25,7 +26,7 @@ class StarfieldLayer: CALayer {
             blue: view.blueColor,
             alpha: 1.0
         ))
-        ctx.setLineWidth(1.5)
+        ctx.setLineWidth(starWidth)
 
         // Draw all stars as lines from old position to new position
         for star in view.stars {

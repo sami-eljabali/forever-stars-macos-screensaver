@@ -1,11 +1,14 @@
 import ScreenSaver
 import QuartzCore
 
+private let randomizeSpeedEnabled = false
+private let randomizeColorEnabled = false
+private let starCount = 500
+private let starTopSpeed: CGFloat = 200
+private let changeColorAndSpeedIntervalSeconds: CGFloat = 10
+
 @objc(ForeverStarsView)
 class ForeverStarsView: ScreenSaverView {
-
-    private static let starCount = 500
-    private static let starTopSpeed: CGFloat = 200
 
     var stars: [Star] = []
     var redColor: CGFloat = 1.0
@@ -33,7 +36,7 @@ class ForeverStarsView: ScreenSaverView {
         animationTimeInterval = 1.0 / 60.0
 
         // Randomize initial color and speed
-        overallSpeed = CGFloat.random(in: 20...Self.starTopSpeed)
+        overallSpeed = CGFloat.random(in: 20...starTopSpeed)
         redColor = CGFloat.random(in: 0.1...1.0)
         greenColor = CGFloat.random(in: 0.1...1.0)
         blueColor = CGFloat.random(in: 0.1...1.0)
@@ -41,7 +44,7 @@ class ForeverStarsView: ScreenSaverView {
         // Initialize stars
         let width = max(frame.width, 800)
         let height = max(frame.height, 600)
-        stars = (0..<Self.starCount).map { _ in
+        stars = (0..<starCount).map { _ in
             Star(
                 x: CGFloat.random(in: -(width * 2)...(width * 2)),
                 y: CGFloat.random(in: -(height * 2)...(height * 2)),
@@ -82,10 +85,13 @@ class ForeverStarsView: ScreenSaverView {
         RunLoop.current.add(anim, forMode: .common)
         animationTimer = anim
 
-        // Timer to change color and speed every 10 seconds
-        let timer = Timer(timeInterval: 10.0, target: self,
+        // Timer to change color and speed
+        let timer = Timer(timeInterval: changeColorAndSpeedIntervalSeconds,
+                          target: self,
                           selector: #selector(randomizeAppearance),
-                          userInfo: nil, repeats: true)
+                          userInfo: nil,
+                          repeats: true
+        )
         RunLoop.current.add(timer, forMode: .common)
         colorTimer = timer
     }
@@ -144,10 +150,14 @@ class ForeverStarsView: ScreenSaverView {
     }
 
     @objc private func randomizeAppearance() {
-        overallSpeed = CGFloat.random(in: 20...Self.starTopSpeed)
-        redColor = CGFloat.random(in: 0.1...1.0)
-        greenColor = CGFloat.random(in: 0.1...1.0)
-        blueColor = CGFloat.random(in: 0.1...1.0)
+        if randomizeSpeedEnabled {
+            overallSpeed = CGFloat.random(in: 20...starTopSpeed)
+        }
+        if randomizeColorEnabled {
+            redColor = CGFloat.random(in: 0.1...1.0)
+            greenColor = CGFloat.random(in: 0.1...1.0)
+            blueColor = CGFloat.random(in: 0.1...1.0)
+        }
     }
 
     // MARK: - Configuration
