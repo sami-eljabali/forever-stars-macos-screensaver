@@ -12,12 +12,12 @@
 #### Download (recommended)
 1. Download `Forever Stars.saver` from the [latest release](../../releases/latest)
 2. Open the file to install
-3. Go to **System Settings → Screen Saver** and select it under **Others**
+3. **System Settings → Wallpaper → Screen Saver... → Others → View All → Forever Stars**
 
 #### Build from source
 1. Clone the repo
 2. Run `make install`
-3. Go to **System Settings → Screen Saver** and select it under **Others**
+3. **System Settings → Wallpaper → Screen Saver... → Others → View All → Forever Stars**
 
 ## Commands
 
