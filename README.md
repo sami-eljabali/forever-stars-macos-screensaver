@@ -36,3 +36,10 @@ At the top of `ForeverStarsView.swift`, two constants control periodic appearanc
 |----------|---------|-------------|
 | `randomizeSpeedEnabled` | `false` | Randomly vary star speed over time |
 | `randomizeColorEnabled` | `false` | Randomly shift star color over time |
+
+
+> [!WARNING]  
+> Intalling locally numerous times may leave an unwanted cached version installed. <br>
+> If countered run:  <br>
+> Run `killall legacyScreenSaver`  <br>
+> Delete duplicates found between `~/Library/Screen Savers/` (user-level) & `/Library/Screen Savers/` (system-level) 
