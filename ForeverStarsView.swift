@@ -1,69 +1,16 @@
 import ScreenSaver
 import QuartzCore
 
-// MARK: - Star Model
-
-private struct Star {
-    var x: CGFloat
-    var y: CGFloat
-    var z: CGFloat
-    var speed: CGFloat
-    var oldScreenX: CGFloat = 0
-    var oldScreenY: CGFloat = 0
-    var screenX: CGFloat = 0
-    var screenY: CGFloat = 0
-}
-
-// MARK: - Starfield Layer
-
-private class StarfieldLayer: CALayer {
-
-    weak var starfieldView: ForeverStarsView?
-
-    override func action(forKey event: String) -> (any CAAction)? {
-        // Disable all implicit animations
-        return NSNull()
-    }
-
-    override func draw(in ctx: CGContext) {
-        guard let view = starfieldView else { return }
-
-        let bounds = self.bounds
-
-        // Paint the background black
-        ctx.setFillColor(CGColor.black)
-        ctx.fill(bounds)
-
-        // Set the star color
-        ctx.setStrokeColor(CGColor(
-            red: view.redColor,
-            green: view.greenColor,
-            blue: view.blueColor,
-            alpha: 1.0
-        ))
-        ctx.setLineWidth(1.5)
-
-        // Draw all stars as lines from old position to new position
-        for star in view.stars {
-            ctx.move(to: CGPoint(x: star.oldScreenX, y: star.oldScreenY))
-            ctx.addLine(to: CGPoint(x: star.screenX, y: star.screenY))
-        }
-        ctx.strokePath()
-    }
-}
-
-// MARK: - Forever Stars View
-
 @objc(ForeverStarsView)
 class ForeverStarsView: ScreenSaverView {
 
     private static let starCount = 500
     private static let starTopSpeed: CGFloat = 200
 
-    fileprivate var stars: [Star] = []
-    fileprivate var redColor: CGFloat = 1.0
-    fileprivate var greenColor: CGFloat = 1.0
-    fileprivate var blueColor: CGFloat = 1.0
+    var stars: [Star] = []
+    var redColor: CGFloat = 1.0
+    var greenColor: CGFloat = 1.0
+    var blueColor: CGFloat = 1.0
     private var overallSpeed: CGFloat = 50
 
     private var animationTimer: Timer?
@@ -137,8 +84,8 @@ class ForeverStarsView: ScreenSaverView {
 
         // Timer to change color and speed every 10 seconds
         let timer = Timer(timeInterval: 10.0, target: self,
-                         selector: #selector(randomizeAppearance),
-                         userInfo: nil, repeats: true)
+                          selector: #selector(randomizeAppearance),
+                          userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: .common)
         colorTimer = timer
     }

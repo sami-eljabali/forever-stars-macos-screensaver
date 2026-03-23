@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CFCA4122F70C05C00457944 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA4102F70C05C00457944 /* Star.swift */; };
+		9CFCA4132F70C05C00457944 /* StarfieldLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA4112F70C05C00457944 /* StarfieldLayer.swift */; };
 		A1000001 /* ForeverStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001 /* ForeverStarsView.swift */; };
 		A1000002 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2000010 /* InfoPlist.strings */; };
 		A1000003 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2000003 /* ScreenSaver.framework */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9CFCA4102F70C05C00457944 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		9CFCA4112F70C05C00457944 /* StarfieldLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarfieldLayer.swift; sourceTree = "<group>"; };
 		A2000001 /* ForeverStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeverStarsView.swift; sourceTree = "<group>"; };
 		A2000002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2000003 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
@@ -35,9 +39,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A4000001 /* Forever Stars */ = {
+		A4000001 = {
 			isa = PBXGroup;
 			children = (
+				9CFCA4102F70C05C00457944 /* Star.swift */,
+				9CFCA4112F70C05C00457944 /* StarfieldLayer.swift */,
 				A2000001 /* ForeverStarsView.swift */,
 				A2000002 /* Info.plist */,
 				A2000010 /* InfoPlist.strings */,
@@ -103,7 +109,7 @@
 				Base,
 				English,
 			);
-			mainGroup = A4000001 /* Forever Stars */;
+			mainGroup = A4000001;
 			productRefGroup = A4000003 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,6 +136,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1000001 /* ForeverStarsView.swift in Sources */,
+				9CFCA4122F70C05C00457944 /* Star.swift in Sources */,
+				9CFCA4132F70C05C00457944 /* StarfieldLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +158,8 @@
 		A8000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -157,14 +167,14 @@
 				PRODUCT_NAME = "Forever Stars";
 				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
-				COMBINE_HIDPI_IMAGES = YES;
-				CODE_SIGN_IDENTITY = "-";
 			};
 			name = Debug;
 		};
 		A8000002 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -172,8 +182,6 @@
 				PRODUCT_NAME = "Forever Stars";
 				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
-				COMBINE_HIDPI_IMAGES = YES;
-				CODE_SIGN_IDENTITY = "-";
 			};
 			name = Release;
 		};
@@ -182,9 +190,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				GCC_OPTIMIZATION_LEVEL = 0;
 			};
 			name = Debug;
 		};
@@ -193,9 +201,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 			};
 			name = Release;
 		};
