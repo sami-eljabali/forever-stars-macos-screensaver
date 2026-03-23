@@ -101,14 +101,16 @@ class ForeverStarsView: ScreenSaverView {
         animationTimer = anim
 
         // Timer to change color and speed
-        let timer = Timer(timeInterval: changeColorAndSpeedIntervalSeconds,
-                          target: self,
-                          selector: #selector(randomizeAppearance),
-                          userInfo: nil,
-                          repeats: true
-        )
-        RunLoop.current.add(timer, forMode: .common)
-        colorTimer = timer
+        if randomizeSpeedEnabled || randomizeColorEnabled {
+            let timer = Timer(timeInterval: changeColorAndSpeedIntervalSeconds,
+                              target: self,
+                              selector: #selector(randomizeAppearance),
+                              userInfo: nil,
+                              repeats: true
+            )
+            RunLoop.current.add(timer, forMode: .common)
+            colorTimer = timer
+        }
     }
 
     override func stopAnimation() {
