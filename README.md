@@ -1,15 +1,23 @@
-<h1 align="center">Forever Stars MacOS Screensaver</h1></br>
-<p align="center">Classic Windows Starfield Screensaver done by <a href="https://www.opanoid.com/source-code/">Opanoid</a>.</p>
-
 <p align="center">
 <img src="https://github.com/seljabali/forever-stars/blob/master/screen-shots/stars.gif?raw=true" alt="" data-canonical-src="" />
 </p>
-</br>
-Project's aim is to port over source code to Swift, as well as, have it working on Big Sur.
+<h1 align="center">Forever Stars MacOS Screensaver</h1></br>
+<p align="center">MacOS screensaver remake of <a href="https://www.opanoid.com/source-code/">Windows's Starfield Screensaver</a> remake.</p>
+<p align="center">Revised from a project initially written by <a href="https://www.opanoid.com/source-code/">Schlotts Opanoid</a>.</p>
 
-## Usage
+## Installation
+#### 1. Download from Github
+* Download `Forever Stars.saver` from latest release.
+* Open file to install
+* Open **System Settings → Screen Saver** to activate it, under `Others`.
 
-All commands use `make`:
+#### 2. Compile & install locally
+* Clone the project
+* Run `make install` locally at project's root
+* Open **System Settings → Screen Saver** to activate it, under `Others`.
+
+
+## CLI Commands
 
 | Command | Description |
 |---------|-------------|
@@ -17,27 +25,3 @@ All commands use `make`:
 | `make install` | Build and install to `~/Library/Screen Savers/` |
 | `make run` | Build and launch the test harness (preview window) |
 | `make clean` | Remove the build directory |
-
-### Build
-
-```sh
-make build
-```
-
-### Run Test Harness
-
-Launches a preview window to test the screensaver without installing it:
-
-```sh
-make run
-```
-
-### Install
-
-Builds and copies the `.saver` bundle to your user Screen Savers folder:
-
-```sh
-make install
-```
-
-Open **System Settings → Screen Saver** to activate it.
