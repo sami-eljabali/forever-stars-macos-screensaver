@@ -1,8 +1,6 @@
 import QuartzCore
 
 class StarfieldLayer: CALayer {
-    private let starWidth: CGFloat = 3.2
-
     weak var starfieldView: ForeverStarsView?
 
     override func action(forKey event: String) -> (any CAAction)? {

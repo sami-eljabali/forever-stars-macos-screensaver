@@ -1,6 +1,8 @@
 import ScreenSaver
 import QuartzCore
 
+public let starWidth: CGFloat = 3.2
+
 private let fps: CGFloat = 60
 private let starCount = 1200
 
