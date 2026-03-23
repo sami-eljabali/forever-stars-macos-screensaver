@@ -34,5 +34,5 @@ At the top of `ForeverStarsView.swift`, two constants control periodic appearanc
 
 | Constant | Default | Description |
 |----------|---------|-------------|
-| `randomizeSpeedEnabled` | `true` | Randomly vary star speed over time |
-| `randomizeColorEnabled` | `true` | Randomly shift star color over time |
+| `randomizeSpeedEnabled` | `false` | Randomly vary star speed over time |
+| `randomizeColorEnabled` | `false` | Randomly shift star color over time |
