@@ -1,27 +1,38 @@
 <p align="center">
-<img src="https://github.com/seljabali/forever-stars/blob/master/screen-shots/stars.gif?raw=true" alt="" data-canonical-src="" />
+<img src="screen-shots/stars.gif" alt="Forever Stars screensaver preview" />
 </p>
-<h1 align="center">Forever Stars MacOS Screensaver</h1></br>
-<p align="center">MacOS screensaver remake of <a href="https://www.opanoid.com/source-code/">Windows's Starfield Screensaver</a> remake.</p>
-<p align="center">Revised from a project initially written by <a href="https://www.opanoid.com/source-code/">Schlotts Opanoid</a>.</p>
+<h1 align="center">Forever Stars</h1>
+<p align="center">A macOS screensaver — a Swift remake of the classic Windows Starfield.</p>
+<p align="center">
+  <img src="https://github.com/sami-eljabali/forever-stars-macos-screensaver/actions/workflows/build.yml/badge.svg" alt="Build" />
+</p>
 
 ## Installation
-#### 1. Download from Github
-* Download `Forever Stars.saver` from latest release.
-* Open file to install
-* Open **System Settings → Screen Saver** to activate it, under `Others`.
 
-#### 2. Compile & install locally
-* Clone the project
-* Run `make install` locally at project's root
-* Open **System Settings → Screen Saver** to activate it, under `Others`.
+#### Download (recommended)
+1. Download `Forever Stars.saver` from the [latest release](../../releases/latest)
+2. Open the file to install
+3. Go to **System Settings → Screen Saver** and select it under **Others**
 
+#### Build from source
+1. Clone the repo
+2. Run `make install`
+3. Go to **System Settings → Screen Saver** and select it under **Others**
 
-## CLI Commands
+## Commands
 
 | Command | Description |
 |---------|-------------|
-| `make build` | Compile the screensaver into `/tmp/forever-stars-build/` |
+| `make build` | Compile into `/tmp/forever-stars-build/` |
 | `make install` | Build and install to `~/Library/Screen Savers/` |
 | `make run` | Build and launch the test harness (preview window) |
 | `make clean` | Remove the build directory |
+
+## Configuration
+
+At the top of `ForeverStarsView.swift`, two constants control periodic appearance changes:
+
+| Constant | Default | Description |
+|----------|---------|-------------|
+| `randomizeSpeedEnabled` | `true` | Randomly vary star speed over time |
+| `randomizeColorEnabled` | `true` | Randomly shift star color over time |
