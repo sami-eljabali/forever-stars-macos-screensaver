@@ -30,7 +30,7 @@ Found at **System Settings → Wallpaper → Screen Saver... → Others → View
 
 ## Configuration
 
-At the top of `ForeverStarsView.swift`, two constants control periodic appearance changes:
+At the top of [ForeverStarsView.swift](https://github.com/sami-eljabali/forever-stars-macos-screensaver/blob/master/ForeverStarsView.swift), two constants control periodic appearance changes:
 
 | Constant | Default | Description |
 |----------|---------|-------------|
