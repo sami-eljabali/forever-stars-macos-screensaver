@@ -43,3 +43,11 @@ At the top of [ForeverStarsView.swift](https://github.com/sami-eljabali/forever-
 > To fix:  <br>
 > * Run `killall legacyScreenSaver`  <br>
 > * Delete duplicates found between `~/Library/Screen Savers/` & `/Library/Screen Savers/`
+
+## 😏 Like the screensaver?
+If you liked the screensaver, please star the repository __[as others have](https://github.com/sami-eljabali/forever-stars-macos-screensaver/stargazers)__! ⭐️
+
+## 🍪 Extras
+* [MATLAB Rendition](https://commons.wikimedia.org/wiki/File:StarfieldSimulation.gif)
+* [Android Rendition](https://github.com/thelumiereguy/StarscapeDemoGame-Android)
+* [Starfield Trivia](https://muffinlabs.com/screensavers/2-stars/)
