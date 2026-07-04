@@ -4,14 +4,16 @@ import QuartzCore
 public let starWidth: CGFloat = 3.2
 
 private let fps: CGFloat = 60
-private let starCount = 1200
+private let frameWidth: CGFloat = 800
+private let frameHeight: CGFloat = 600
 
-private let changeColorAndSpeedIntervalSeconds: CGFloat = 10
-private let randomizeSpeedEnabled = false
-private let randomizeColorEnabled = false
+private let starCount = 1_200
 
-private let starStartSpeed: CGFloat = 3
-private let starTopSpeed: CGFloat = 100
+private let starStartSpeed: CGFloat = 1
+private let starEndSpeed: CGFloat = 10
+
+private let starStartZPosition: CGFloat = 100
+private let starEndZPosition: CGFloat = 10_000
 
 private let starStartRedColor: CGFloat = 0.7
 private let starStartGreenColor: CGFloat = 0.7
@@ -21,6 +23,12 @@ private let starEndRedColor: CGFloat = 1.0
 private let starEndGreenColor: CGFloat = 1.0
 private let starEndBlueColor: CGFloat = 1.0
 
+// Randomization feature
+private let randomizeColorEnabled = false
+private let randomizeSpeedEnabled = false
+private let randomizeColorAndSpeedIntervalSeconds: CGFloat = 10
+private let starStartRandomSpeed: CGFloat = 1
+private let starEndRandomSpeed: CGFloat = 100
 
 @objc(ForeverStarsView)
 class ForeverStarsView: ScreenSaverView {
@@ -32,7 +40,7 @@ class ForeverStarsView: ScreenSaverView {
     private var overallSpeed: CGFloat = starStartSpeed
 
     private var animationTimer: Timer?
-    private var colorTimer: Timer?
+    private var randomizationTimer: Timer?
 
     // MARK: - Initialization
 
@@ -48,23 +56,23 @@ class ForeverStarsView: ScreenSaverView {
 
     private func commonInit() {
         wantsLayer = true
-        animationTimeInterval = 1.0 / 60.0
+        animationTimeInterval = 1.0 / fps
 
-        // Randomize initial color and speed
+        // Initialize color and speed
         overallSpeed = starStartSpeed
         redColor = starStartRedColor
         greenColor = starStartGreenColor
         blueColor = starStartBlue
 
         // Initialize stars
-        let width = max(frame.width, 800)
-        let height = max(frame.height, 600)
+        let width = max(frame.width, frameWidth)
+        let height = max(frame.height, frameHeight)
         stars = (0..<starCount).map { _ in
             Star(
                 x: CGFloat.random(in: -(width * 2)...(width * 2)),
                 y: CGFloat.random(in: -(height * 2)...(height * 2)),
-                z: CGFloat.random(in: 100...500),
-                speed: CGFloat.random(in: 1...10)
+                z: CGFloat.random(in: starStartZPosition...starEndZPosition),
+                speed: CGFloat.random(in: starStartSpeed...starEndSpeed)
             )
         }
     }
@@ -100,24 +108,24 @@ class ForeverStarsView: ScreenSaverView {
         RunLoop.current.add(anim, forMode: .common)
         animationTimer = anim
 
-        // Timer to change color and speed
+        // Timer to radomzie color and speed
         if randomizeSpeedEnabled || randomizeColorEnabled {
-            let timer = Timer(timeInterval: changeColorAndSpeedIntervalSeconds,
+            let timer = Timer(timeInterval: randomizeColorAndSpeedIntervalSeconds,
                               target: self,
-                              selector: #selector(randomizeAppearance),
+                              selector: #selector(randomizeColorAndSpeed),
                               userInfo: nil,
                               repeats: true
             )
             RunLoop.current.add(timer, forMode: .common)
-            colorTimer = timer
+            randomizationTimer = timer
         }
     }
 
     override func stopAnimation() {
         animationTimer?.invalidate()
         animationTimer = nil
-        colorTimer?.invalidate()
-        colorTimer = nil
+        randomizationTimer?.invalidate()
+        randomizationTimer = nil
         super.stopAnimation()
     }
 
@@ -156,19 +164,19 @@ class ForeverStarsView: ScreenSaverView {
             if stars[i].screenX > width || stars[i].screenX < 0 ||
                stars[i].screenY > height || stars[i].screenY < 0 ||
                stars[i].z <= 0 {
-                stars[i].speed = CGFloat.random(in: 1...10)
+                stars[i].speed = CGFloat.random(in: starStartSpeed...starEndSpeed)
                 stars[i].x = CGFloat.random(in: -(width * 2)...(width * 2))
                 stars[i].y = CGFloat.random(in: -(height * 2)...(height * 2))
-                stars[i].z = CGFloat.random(in: 100...10000)
+                stars[i].z = CGFloat.random(in: starStartZPosition...starEndZPosition)
                 stars[i].oldScreenX = stars[i].screenX
                 stars[i].oldScreenY = stars[i].screenY
             }
         }
     }
 
-    @objc private func randomizeAppearance() {
+    @objc private func randomizeColorAndSpeed() {
         if randomizeSpeedEnabled {
-            overallSpeed = CGFloat.random(in: starStartSpeed...starTopSpeed)
+            overallSpeed = CGFloat.random(in: starStartRandomSpeed...starEndRandomSpeed)
         }
         if randomizeColorEnabled {
             redColor = CGFloat.random(in: starStartRedColor...starEndRedColor)
