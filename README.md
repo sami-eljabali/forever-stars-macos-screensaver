@@ -28,6 +28,11 @@ Found at **System Settings → Wallpaper → Screen Saver... → Others → View
 | `make run` | Build and launch the test harness (preview window) |
 | `make clean` | Remove the build directory |
 
+> [!WARNING]  
+> Installing locally numerous times may leave a previously installed version. To remove:<br>
+> * Run `killall legacyScreenSaver`  <br>
+> * Delete duplicates found between `~/Library/Screen Savers/` & `/Library/Screen Savers/`
+
 ## Configuration
 
 At the top of [ForeverStarsView.swift](https://github.com/sami-eljabali/forever-stars-macos-screensaver/blob/master/ForeverStarsView.swift), two constants control periodic appearance changes:
@@ -36,13 +41,6 @@ At the top of [ForeverStarsView.swift](https://github.com/sami-eljabali/forever-
 |----------|---------|-------------|
 | `randomizeSpeedEnabled` | `false` | Randomly vary star speed over time |
 | `randomizeColorEnabled` | `false` | Randomly shift star color over time |
-
-
-> [!WARNING]  
-> Installing locally numerous times may leave an unwanted cached version installed. <br>
-> To fix:  <br>
-> * Run `killall legacyScreenSaver`  <br>
-> * Delete duplicates found between `~/Library/Screen Savers/` & `/Library/Screen Savers/`
 
 ## 😏 Like the screensaver?
 If you liked the screensaver, please star the repository __[as others have](https://github.com/sami-eljabali/forever-stars-macos-screensaver/stargazers)__! ⭐️
