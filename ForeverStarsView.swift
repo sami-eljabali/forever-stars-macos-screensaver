@@ -16,6 +16,9 @@ private let randomizeColorEnabled = false
 private let starStartSpeed: CGFloat = 1
 private let starEndSpeed: CGFloat = 10
 
+private let starStartRandomSpeed: CGFloat = 1
+private let starEndRandomSpeed: CGFloat = 100
+
 private let starStartZPosition: CGFloat = 100
 private let starEndZPosition: CGFloat = 10_000
 
@@ -173,7 +176,7 @@ class ForeverStarsView: ScreenSaverView {
 
     @objc private func randomizeAppearance() {
         if randomizeSpeedEnabled {
-            overallSpeed = CGFloat.random(in: starStartSpeed...starEndSpeed)
+            overallSpeed = CGFloat.random(in: starStartRandomSpeed...starEndRandomSpeed)
         }
         if randomizeColorEnabled {
             redColor = CGFloat.random(in: starStartRedColor...starEndRedColor)
